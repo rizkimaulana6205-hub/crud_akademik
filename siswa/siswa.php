@@ -186,18 +186,25 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
+                                    <?php
+                                    include '../db.php';
+                                    $i = 1;
+                                    $data = mysqli_query($koneksi, "SELECT * FROM siswa");
+                                    while ($d = mysqli_fetch_array($data)) {
+                                    ?>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>ambabatu</td>
-                                            <td>3203223</td>
-                                            <td>amba@gmail.com</td>
-                                            <td>pria</td>
+                                            <td><?php echo $i++; ?></td>
+                                            <td><?php echo $d['nama']; ?></td>
+                                            <td><?php echo $d['nisn']; ?></td>
+                                            <td><?php echo $d['email']; ?></td>
+                                            <td><?php echo $d['jk']; ?></td>
                                             <td>
-                                                <a href="editsiswa.php" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                                <a href="editsiswa.php?id=<?php echo $d['id_siswa']; ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                                <a href="hapussiswa.php?id=<?php echo $d['id_siswa']; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
+                                    <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
