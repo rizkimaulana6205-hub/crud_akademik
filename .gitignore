@@ -1,5 +1,5 @@
 .env
-config/database.php
+config/db.php
 vendor/
 
 # ini yang ngerijain saya
